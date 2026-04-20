@@ -1,0 +1,5 @@
+# Sem dependências externas obrigatórias
+# Apenas usa bibliotecas padrão do Python
+
+# Opcional para desenvolvimento:
+# pytest>=7.0       # Para rodar testes

@@ -1,0 +1,70 @@
+{
+  "postos": [
+    {
+      "id": 1,
+      "nome": "Centro Vacinação A",
+      "capacidade": 500,
+      "custo_abertura": 5000.0,
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "id": 2,
+      "nome": "Centro Vacinação B",
+      "capacidade": 400,
+      "custo_abertura": 4000.0,
+      "x": 15.0,
+      "y": 0.0
+    },
+    {
+      "id": 3,
+      "nome": "Centro Vacinação C",
+      "capacidade": 300,
+      "custo_abertura": 3000.0,
+      "x": 30.0,
+      "y": 0.0
+    },
+    {
+      "id": 4,
+      "nome": "Centro Vacinação D",
+      "capacidade": 350,
+      "custo_abertura": 3500.0,
+      "x": 0.0,
+      "y": 20.0
+    }
+  ],
+  "demandas": [
+    {
+      "id": 1,
+      "nome": "Bairro Norte",
+      "populacao": 300,
+      "x": 5.0,
+      "y": 5.0
+    },
+    {
+      "id": 2,
+      "nome": "Bairro Centro",
+      "populacao": 450,
+      "x": 15.0,
+      "y": 10.0
+    },
+    {
+      "id": 3,
+      "nome": "Bairro Leste",
+      "populacao": 250,
+      "x": 25.0,
+      "y": 5.0
+    },
+    {
+      "id": 4,
+      "nome": "Bairro Sul",
+      "populacao": 200,
+      "x": 10.0,
+      "y": 25.0
+    }
+  ],
+  "parametros": {
+    "custo_por_km": 10.0,
+    "custo_nao_atendimento": 500.0
+  }
+}

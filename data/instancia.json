@@ -1,0 +1,160 @@
+{
+  "parametros": {
+    "custo_por_km": 2.5,
+    "custo_nao_atendimento": 500
+  },
+  "postos": [
+    {
+      "id": 1,
+      "nome": "Posto Centro",
+      "capacidade": 800,
+      "custo_abertura": 3000,
+      "x": 5.0,
+      "y": 5.0
+    },
+    {
+      "id": 2,
+      "nome": "Posto Norte",
+      "capacidade": 600,
+      "custo_abertura": 2500,
+      "x": 5.0,
+      "y": 12.0
+    },
+    {
+      "id": 3,
+      "nome": "Posto Sul",
+      "capacidade": 600,
+      "custo_abertura": 2200,
+      "x": 5.0,
+      "y": 0.0
+    },
+    {
+      "id": 4,
+      "nome": "Posto Leste",
+      "capacidade": 500,
+      "custo_abertura": 2000,
+      "x": 10.0,
+      "y": 5.0
+    },
+    {
+      "id": 5,
+      "nome": "Posto Oeste",
+      "capacidade": 500,
+      "custo_abertura": 2000,
+      "x": 0.0,
+      "y": 5.0
+    },
+    {
+      "id": 6,
+      "nome": "Posto Nordeste",
+      "capacidade": 400,
+      "custo_abertura": 1800,
+      "x": 10.0,
+      "y": 10.0
+    },
+    {
+      "id": 7,
+      "nome": "Posto Sudoeste",
+      "capacidade": 400,
+      "custo_abertura": 1800,
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "id": 8,
+      "nome": "Posto Periférico A",
+      "capacidade": 300,
+      "custo_abertura": 1500,
+      "x": 14.0,
+      "y": 14.0
+    },
+    {
+      "id": 9,
+      "nome": "Posto Periférico B",
+      "capacidade": 300,
+      "custo_abertura": 1500,
+      "x": -2.0,
+      "y": 8.0
+    },
+    {
+      "id": 10,
+      "nome": "Posto Industrial",
+      "capacidade": 1000,
+      "custo_abertura": 4000,
+      "x": 8.0,
+      "y": 2.0
+    }
+  ],
+  "demandas": [
+    {
+      "id": 1,
+      "nome": "Bairro Centro",
+      "populacao": 700,
+      "x": 5.0,
+      "y": 5.5
+    },
+    {
+      "id": 2,
+      "nome": "Bairro Norte",
+      "populacao": 500,
+      "x": 4.5,
+      "y": 11.0
+    },
+    {
+      "id": 3,
+      "nome": "Bairro Sul",
+      "populacao": 450,
+      "x": 5.5,
+      "y": 1.0
+    },
+    {
+      "id": 4,
+      "nome": "Bairro Leste",
+      "populacao": 400,
+      "x": 9.0,
+      "y": 5.0
+    },
+    {
+      "id": 5,
+      "nome": "Bairro Oeste",
+      "populacao": 350,
+      "x": 1.0,
+      "y": 5.0
+    },
+    {
+      "id": 6,
+      "nome": "Bairro Nordeste",
+      "populacao": 300,
+      "x": 9.5,
+      "y": 9.5
+    },
+    {
+      "id": 7,
+      "nome": "Bairro Sudoeste",
+      "populacao": 280,
+      "x": 1.0,
+      "y": 1.0
+    },
+    {
+      "id": 8,
+      "nome": "Comunidade Alfa",
+      "populacao": 200,
+      "x": 13.0,
+      "y": 13.0
+    },
+    {
+      "id": 9,
+      "nome": "Comunidade Beta",
+      "populacao": 180,
+      "x": -1.0,
+      "y": 7.5
+    },
+    {
+      "id": 10,
+      "nome": "Zona Industrial",
+      "populacao": 600,
+      "x": 8.0,
+      "y": 2.5
+    }
+  ]
+}

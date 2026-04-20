@@ -1,0 +1,36 @@
+[project]
+name = "grasp-vacinacao"
+version = "1.0.0"
+description = "Otimização de distribuição de postos de vacinação usando GRASP"
+authors = [
+    {name = "Juan", email = "juan@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+keywords = ["grasp", "metaheuristics", "optimization", "vaccination"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11"
+]
+
+[project.urls]
+Homepage = "https://github.com/user/grasp-vacinacao"
+Documentation = "https://github.com/user/grasp-vacinacao#readme"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+
+[tool.python]
+version = "3.9"
