@@ -10,7 +10,7 @@ from src.services import (
     CalculadoraCusto,
     AlocadorDemanda
 )
-from src.algorithms import ConstrutorGrasp, BuscadorLocal, GRASP
+from src.algorithms import ConstrutorGrasp, BuscadorLocal, BuscaTabu
 from src.io import CarregadorInstancia, FormatterResultado
 
 
@@ -21,19 +21,13 @@ class ContainerDI:
     """
 
     @staticmethod
-    def criar_grasp() -> GRASP:
-        """Factory para criar instância de GRASP com todas as dependências."""
-        # Serviços
+    def criar_tabu() -> BuscaTabu:
+        """Factory para criar instância de Busca Tabu."""
         calculadora_distancia = DistanciaEuclidiana()
         calculadora_custo = CalculadoraCusto(calculadora_distancia)
         alocador = AlocadorDemanda(calculadora_distancia, calculadora_custo)
-
-        # Algoritmos
         construtor = ConstrutorGrasp(alocador)
-        buscador = BuscadorLocal(alocador)
-
-        # GRASP
-        return GRASP(construtor, buscador)
+        return BuscaTabu(construtor, alocador)
 
 
 def main():
@@ -47,19 +41,16 @@ def main():
         # Busca instância padrão em data/
         caminho = os.path.join(os.path.dirname(__file__), "..", "data", "instancia.json")
 
-    alpha = float(sys.argv[2]) if len(sys.argv) > 2 else 0.3
+    tabu_tenure = int(sys.argv[2]) if len(sys.argv) > 2 else 5
     max_iter = int(sys.argv[3]) if len(sys.argv) > 3 else 50
     semente = int(sys.argv[4]) if len(sys.argv) > 4 else None
 
     # Se arquivo não existe, mostra uso
     if not os.path.exists(caminho):
-        print("Uso: python -m src.main [instancia.json] [alpha] [iteracoes] [semente]")
-        print(f"\nInstância padrão não encontrada: {caminho}")
-        print("Crie um arquivo JSON em data/instancia.json ou especifique o caminho.")
+        print("Uso: python -m src.main [instancia.json] [tabu_tenure] [iteracoes] [semente]")
         print("\nExemplos de uso:")
-        print("  python -m src.main")
-        print("  python -m src.main data/instancia.json 0.3 50 42")
-        print("  python -m src.main ./minha_instancia.json 0.5 100")
+        print("  python -m src.main  (Roda padrao com Tabu Search)")
+        print("  python -m src.main data/instancia.json 5 50")
         sys.exit(1)
 
     # Carrega instância
@@ -67,16 +58,14 @@ def main():
     postos, demandas, params = CarregadorInstancia.carregar(caminho)
     print(f"✓ {len(postos)} postos, {len(demandas)} pontos de demanda")
 
-    # Cria e executa GRASP
-    print("\nExecutando GRASP...")
-    grasp = ContainerDI.criar_grasp()
-    melhor_solucao, historico = grasp.executar(
+    print("\nExecutando BUSCA TABU...")
+    algoritmo = ContainerDI.criar_tabu()
+    melhor_solucao, historico = algoritmo.executar(
         postos=postos,
         demandas=demandas,
         params=params,
-        alpha=alpha,
         max_iteracoes=max_iter,
-        semente=semente,
+        tabu_tenure=tabu_tenure,
         verbose=True
     )
 

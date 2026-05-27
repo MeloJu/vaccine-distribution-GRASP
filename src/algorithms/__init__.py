@@ -1,6 +1,6 @@
 """Algorithms layer."""
 from .construcao import ConstrutorGrasp
 from .busca_local import BuscadorLocal
-from .grasp import GRASP
+from .tabu_search import BuscaTabu
 
-__all__ = ["ConstrutorGrasp", "BuscadorLocal", "GRASP"]
+__all__ = ["ConstrutorGrasp", "BuscadorLocal", "BuscaTabu"]

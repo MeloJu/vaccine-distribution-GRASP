@@ -10,7 +10,9 @@
       "capacidade": 800,
       "custo_abertura": 3000,
       "x": 5.0,
-      "y": 5.0
+      "y": 5.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 2,
@@ -18,7 +20,9 @@
       "capacidade": 600,
       "custo_abertura": 2500,
       "x": 5.0,
-      "y": 12.0
+      "y": 12.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 3,
@@ -26,7 +30,9 @@
       "capacidade": 600,
       "custo_abertura": 2200,
       "x": 5.0,
-      "y": 0.0
+      "y": 0.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 4,
@@ -34,7 +40,9 @@
       "capacidade": 500,
       "custo_abertura": 2000,
       "x": 10.0,
-      "y": 5.0
+      "y": 5.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 5,
@@ -42,7 +50,9 @@
       "capacidade": 500,
       "custo_abertura": 2000,
       "x": 0.0,
-      "y": 5.0
+      "y": 5.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 6,
@@ -50,7 +60,9 @@
       "capacidade": 400,
       "custo_abertura": 1800,
       "x": 10.0,
-      "y": 10.0
+      "y": 10.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 7,
@@ -58,7 +70,9 @@
       "capacidade": 400,
       "custo_abertura": 1800,
       "x": 0.0,
-      "y": 0.0
+      "y": 0.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 8,
@@ -66,7 +80,9 @@
       "capacidade": 300,
       "custo_abertura": 1500,
       "x": 14.0,
-      "y": 14.0
+      "y": 14.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 9,
@@ -74,7 +90,9 @@
       "capacidade": 300,
       "custo_abertura": 1500,
       "x": -2.0,
-      "y": 8.0
+      "y": 8.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     },
     {
       "id": 10,
@@ -82,7 +100,9 @@
       "capacidade": 1000,
       "custo_abertura": 4000,
       "x": 8.0,
-      "y": 2.0
+      "y": 2.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
     }
   ],
   "demandas": [

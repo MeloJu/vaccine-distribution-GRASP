@@ -17,6 +17,8 @@ class Posto:
     custo_abertura: float    # custo fixo para abrir o posto
     x: float                 # coordenada x (para calcular distância)
     y: float                 # coordenada y
+    tipo: str = "posto_saude" # tipo (escola, posto_saude, etc)
+    prioridade: int = 1      # multiplicador de penalidade/prioridade (default 1)
 
 
 @dataclass

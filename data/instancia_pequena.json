@@ -4,17 +4,92 @@
     "custo_nao_atendimento": 1000
   },
   "postos": [
-    {"id": 1, "nome": "Central",  "capacidade": 1000, "custo_abertura": 5000, "x": 0.0, "y": 0.0},
-    {"id": 2, "nome": "Norte",    "capacidade": 800,  "custo_abertura": 4000, "x": 0.0, "y": 10.0},
-    {"id": 3, "nome": "Sul",      "capacidade": 800,  "custo_abertura": 4000, "x": 0.0, "y": -10.0},
-    {"id": 4, "nome": "Leste",    "capacidade": 600,  "custo_abertura": 3000, "x": 10.0, "y": 0.0},
-    {"id": 5, "nome": "Oeste",    "capacidade": 600,  "custo_abertura": 3000, "x": -10.0, "y": 0.0}
+    {
+      "id": 1,
+      "nome": "Central",
+      "capacidade": 1000,
+      "custo_abertura": 5000,
+      "x": 0.0,
+      "y": 0.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
+    },
+    {
+      "id": 2,
+      "nome": "Norte",
+      "capacidade": 800,
+      "custo_abertura": 4000,
+      "x": 0.0,
+      "y": 10.0,
+      "tipo": "escola",
+      "prioridade": 2
+    },
+    {
+      "id": 3,
+      "nome": "Sul",
+      "capacidade": 800,
+      "custo_abertura": 4000,
+      "x": 0.0,
+      "y": -10.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
+    },
+    {
+      "id": 4,
+      "nome": "Leste",
+      "capacidade": 600,
+      "custo_abertura": 3000,
+      "x": 10.0,
+      "y": 0.0,
+      "tipo": "escola",
+      "prioridade": 2
+    },
+    {
+      "id": 5,
+      "nome": "Oeste",
+      "capacidade": 600,
+      "custo_abertura": 3000,
+      "x": -10.0,
+      "y": 0.0,
+      "tipo": "posto_saude",
+      "prioridade": 1
+    }
   ],
   "demandas": [
-    {"id": 1, "nome": "Centro", "populacao": 1500, "x": 0.0, "y": 0.0},
-    {"id": 2, "nome": "Norte",  "populacao": 800,  "x": 0.0, "y": 10.0},
-    {"id": 3, "nome": "Sul",    "populacao": 800,  "x": 0.0, "y": -10.0},
-    {"id": 4, "nome": "Leste",  "populacao": 600,  "x": 10.0, "y": 0.0},
-    {"id": 5, "nome": "Oeste",  "populacao": 600,  "x": -10.0, "y": 0.0}
+    {
+      "id": 1,
+      "nome": "Centro",
+      "populacao": 1500,
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "id": 2,
+      "nome": "Norte",
+      "populacao": 800,
+      "x": 0.0,
+      "y": 10.0
+    },
+    {
+      "id": 3,
+      "nome": "Sul",
+      "populacao": 800,
+      "x": 0.0,
+      "y": -10.0
+    },
+    {
+      "id": 4,
+      "nome": "Leste",
+      "populacao": 600,
+      "x": 10.0,
+      "y": 0.0
+    },
+    {
+      "id": 5,
+      "nome": "Oeste",
+      "populacao": 600,
+      "x": -10.0,
+      "y": 0.0
+    }
   ]
 }

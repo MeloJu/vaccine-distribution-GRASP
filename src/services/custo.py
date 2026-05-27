@@ -28,7 +28,7 @@ class CalculadoraCusto:
     ) -> float:
         """Calcula custo total de abertura dos postos."""
         return sum(
-            postos[pid].custo_abertura
+            postos[pid].custo_abertura * postos[pid].prioridade
             for pid in postos_abertos_ids
             if pid in postos
         )
