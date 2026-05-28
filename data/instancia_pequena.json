@@ -12,7 +12,9 @@
       "x": 0.0,
       "y": 0.0,
       "tipo": "posto_saude",
-      "prioridade": 1
+      "prioridade": 1,
+      "funcionarios": 10,
+      "vacinas_disponiveis": 1000
     },
     {
       "id": 2,
@@ -22,7 +24,9 @@
       "x": 0.0,
       "y": 10.0,
       "tipo": "escola",
-      "prioridade": 2
+      "prioridade": 2,
+      "funcionarios": 8,
+      "vacinas_disponiveis": 800
     },
     {
       "id": 3,
@@ -32,7 +36,9 @@
       "x": 0.0,
       "y": -10.0,
       "tipo": "posto_saude",
-      "prioridade": 1
+      "prioridade": 1,
+      "funcionarios": 8,
+      "vacinas_disponiveis": 800
     },
     {
       "id": 4,
@@ -42,7 +48,9 @@
       "x": 10.0,
       "y": 0.0,
       "tipo": "escola",
-      "prioridade": 2
+      "prioridade": 2,
+      "funcionarios": 6,
+      "vacinas_disponiveis": 600
     },
     {
       "id": 5,
@@ -52,7 +60,9 @@
       "x": -10.0,
       "y": 0.0,
       "tipo": "posto_saude",
-      "prioridade": 1
+      "prioridade": 1,
+      "funcionarios": 6,
+      "vacinas_disponiveis": 600
     }
   ],
   "demandas": [

@@ -376,3 +376,8 @@ Se eu tivesse que resumir a implementacao em uma frase:
 Para garantir que o Tabu Search dê prioridade a Postos de Saúde em vez de Escolas:
 1. **JSONs e models.py:** Adicionada a propriedade 	ipo (posto_saude ou escola) e prioridade (1 ou 2).
 2. **services/custo.py:** O custo de abertura agora é multiplicado pela prioridade. Se tentar abrir uma escola (prioridade 2), o custo real fica o dobro. Assim a Busca Tabu **sempre prefere** Postos de Saúde primeiro.
+
+### 👥 Vacinas e Funcionários
+Expandimos o domínio do problema: 
+Agora, cada local candidato (Posto ou Escola) carrega também a quantidade de **uncionarios** (profissionais de saúde alocados) e de **acinas_disponiveis** (estoque inicial).
+Isso torna o modelo muito mais próximo de um cenário real de logística em saúde pública, escalando facilmente para novas restrições (ex: custo atrelado à folha de pagamento dos funcionários).

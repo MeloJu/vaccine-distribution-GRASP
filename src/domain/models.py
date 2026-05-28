@@ -19,6 +19,8 @@ class Posto:
     y: float                 # coordenada y
     tipo: str = "posto_saude" # tipo (escola, posto_saude, etc)
     prioridade: int = 1      # multiplicador de penalidade/prioridade (default 1)
+    funcionarios: int = 0    # quantidade de profissionais da saúde alocados
+    vacinas_disponiveis: int = 0 # estoque inicial de vacinas no local
 
 
 @dataclass
