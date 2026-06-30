@@ -1,78 +1,87 @@
-﻿# vaccine-distribution-GRASP
+# Busca Tabu — Distribuição de Recursos em Campanhas de Vacinação
 
-Sistema em Python para distribuicao de postos de vacinacao usando GRASP (Greedy Randomized Adaptive Search Procedure), com arquitetura modular e testes unitarios.
+Implementação em Python da metaheurística **Busca Tabu** aplicada ao problema de alocação de postos de vacinação municipais, baseado no modelo de cobertura capacitada proposto por Santos (2018).
 
-## Visao Geral
+## Problema
 
-O objetivo e minimizar o custo total de vacinacao considerando:
-- custo de abertura dos postos
-- custo de deslocamento da populacao
-- custo de nao atendimento
+Dado um conjunto de postos candidatos e bairros com demanda populacional, o objetivo é decidir **quais postos abrir** e **como alocar cada bairro a um posto**, minimizando o custo total:
 
-## Estrutura do Projeto
-
-```text
-metaheurisitcas/
-|- src/
-|  |- domain/
-|  |  |- models.py
-|  |  |- __init__.py
-|  |- services/
-|  |  |- distancia.py
-|  |  |- custo.py
-|  |  |- alocacao.py
-|  |  |- __init__.py
-|  |- algorithms/
-|  |  |- construcao.py
-|  |  |- busca_local.py
-|  |  |- grasp.py
-|  |  |- __init__.py
-|  |- io/
-|  |  |- carregador.py
-|  |  |- formatter.py
-|  |  |- __init__.py
-|  |- main.py
-|  |- __init__.py
-|- data/
-|  |- instancia.json
-|  |- instancia_pequena.json
-|- tests/
-|  |- test_domain.py
-|  |- test_services.py
-|  |- test_algorithms.py
-|  |- test_io.py
-|- run.py
-|- README.md
+```
+Custo total = custo de abertura dos postos
+            + custo de deslocamento da população
+            + penalidade por pessoas não atendidas
 ```
 
-## Requisitos
+## Algoritmo
 
-- Python 3.9+
-- Sem dependencias externas obrigatorias
+A **Busca Tabu** parte de uma solução inicial gulosa e melhora iterativamente explorando três movimentos de vizinhança:
+
+- **Add** — abre um posto fechado
+- **Drop** — fecha um posto aberto
+- **Swap** — troca um posto aberto por um fechado
+
+Uma lista tabu bloqueia movimentos reversos por `tabu_tenure` iterações para evitar ciclagem. O **critério de aspiração** permite aceitar um movimento tabu se ele produzir um novo melhor global.
 
 ## Como Executar
 
-### Execucao padrao
-
-Usa automaticamente o arquivo `data/instancia.json`:
+**Execução padrão** (instância com 10 postos e 10 bairros):
 
 ```bash
-python run.py
+py run.py
 ```
 
-### Execucao com parametros
+**Com parâmetros:**
 
 ```bash
-python run.py data/instancia.json 0.3 50 42
+py -m src.main data/instancia.json [tabu_tenure] [iteracoes]
 ```
 
-Onde:
-- argumento 1: caminho do JSON (opcional)
-- argumento 2: alpha (0 a 1)
-- argumento 3: numero de iteracoes
-- argumento 4: seed (opcional)
+| Parâmetro | Descrição | Padrão |
+|---|---|---|
+| `tabu_tenure` | Iterações que um movimento fica bloqueado | `5` |
+| `iteracoes` | Número máximo de iterações | `50` |
 
-## Formato do JSON de Entrada
+**Exemplo:**
+
+```bash
+py -m src.main data/instancia.json 5 50
+```
+
+## Estrutura do Projeto
+
+```
+metaheurisitcas/
+├── src/
+│   ├── domain/
+│   │   └── models.py           # Entidades: Posto, PontoDemanda, Solucao
+│   ├── services/
+│   │   ├── distancia.py        # Distância Euclidiana
+│   │   ├── custo.py            # Cálculo dos componentes de custo
+│   │   └── alocacao.py        # Alocação gulosa de demanda aos postos
+│   ├── algorithms/
+│   │   ├── construcao.py       # Construção da solução inicial (gulosa)
+│   │   ├── busca_local.py      # Busca local (first-improvement)
+│   │   └── tabu_search.py      # Busca Tabu (Add/Drop/Swap + lista tabu)
+│   ├── io/
+│   │   ├── carregador.py       # Leitura de instâncias JSON
+│   │   └── formatter.py        # Impressão dos resultados
+│   └── main.py                 # Ponto de entrada e injeção de dependência
+├── data/
+│   ├── instancia.json          # Instância padrão (10 postos, 10 bairros)
+│   └── instancia_pequena.json  # Instância pequena (5 postos, 5 bairros)
+├── tests/                      # Testes unitários
+└── run.py                      # Script de execução rápida
+```
+
+## Testes
+
+```bash
+py -m unittest discover tests -v
+```
+
+## Formato da Instância
+
+Arquivo JSON com postos candidatos, pontos de demanda e parâmetros de custo:
 
 ```json
 {
@@ -89,20 +98,6 @@ Onde:
 }
 ```
 
-## Executar Testes
+## Referência
 
-```bash
-python -m unittest discover tests -v
-```
-
-## Arquitetura
-
-- `domain`: entidades do problema
-- `services`: regras de negocio reutilizaveis
-- `algorithms`: GRASP (construcao + busca local)
-- `io`: carga de dados e formatacao de saida
-
-## Observacoes
-
-- O arquivo original monolitico `grasp_vacinacao.py` foi preservado.
-- O fluxo principal atual esta em `src/main.py` e `run.py`.
+SANTOS, Letícia Caldas dos. *Proposição de um modelo de programação matemática para distribuição de imunobiológicos no município de Rio das Ostras*. Projeto Final de Curso — Engenharia de Produção, UFF/PURO, Rio das Ostras, 2018.

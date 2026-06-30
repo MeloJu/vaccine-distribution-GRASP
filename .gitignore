@@ -46,3 +46,7 @@ htmlcov/
 results/
 output/
 *.json.backup
+instancia_exemplo.json
+
+# Artigo e documentos internos
+artigo/
