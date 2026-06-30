@@ -1,0 +1,29 @@
+# Git
+.git/
+.gitignore
+
+# Testes e docs
+tests/
+artigo/
+*.md
+!data/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE e OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build e outputs
+dist/
+build/
+results/
+output/
