@@ -26,72 +26,74 @@ Uma lista tabu bloqueia movimentos reversos por `tabu_tenure` iterações para e
 
 ### Com Docker (recomendado)
 
+**Pré-requisito:** [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado e em execução.
+
 ```bash
+# Primeira execução — constrói a imagem e roda
 docker compose up
+
+# Execuções seguintes
+docker compose up
+
+# Com parâmetros customizados
+docker compose run --rm tabu python -m src.main data/instancia.json <tabu_tenure> <iteracoes>
 ```
 
-Para passar parâmetros diferentes:
+Exemplo com tenure 10 e 100 iterações:
 
 ```bash
-docker compose run --rm tabu python -m src.main data/instancia.json 5 50
+docker compose run --rm tabu python -m src.main data/instancia.json 10 100
 ```
+
+O diretório `data/` é montado como volume — instâncias adicionadas localmente ficam disponíveis no container sem rebuildar a imagem.
 
 ### Sem Docker
 
-Requer Python 3.9+, sem dependências externas.
-
-**Execução padrão** (instância com 10 postos e 10 bairros):
+**Pré-requisito:** Python 3.9+, sem dependências externas.
 
 ```bash
+# Execução padrão
 python run.py
+
+# Com parâmetros
+python -m src.main data/instancia.json <tabu_tenure> <iteracoes>
 ```
 
-**Com parâmetros:**
+> **Windows:** se `python` não for reconhecido, use `py run.py`.
 
-```bash
-python -m src.main data/instancia.json [tabu_tenure] [iteracoes]
-```
+## Parâmetros
 
 | Parâmetro | Descrição | Padrão |
 |---|---|---|
-| `tabu_tenure` | Iterações que um movimento fica bloqueado | `5` |
-| `iteracoes` | Número máximo de iterações | `50` |
+| `tabu_tenure` | Iterações que um movimento fica bloqueado na lista tabu | `5` |
+| `iteracoes` | Número máximo de iterações da Busca Tabu | `50` |
+
+## Testes
+
+```bash
+python -m unittest discover tests -v
+```
 
 ## Estrutura do Projeto
 
 ```
 metaheurisitcas/
 ├── src/
-│   ├── domain/
-│   │   └── models.py           # Entidades: Posto, PontoDemanda, Solucao
-│   ├── services/
-│   │   ├── distancia.py        # Distância Euclidiana
-│   │   ├── custo.py            # Cálculo dos componentes de custo
-│   │   └── alocacao.py        # Alocação gulosa de demanda aos postos
-│   ├── algorithms/
-│   │   ├── construcao.py       # Construção da solução inicial (gulosa)
-│   │   ├── busca_local.py      # Busca local (first-improvement)
-│   │   └── tabu_search.py      # Busca Tabu (Add/Drop/Swap + lista tabu)
-│   ├── io/
-│   │   ├── carregador.py       # Leitura de instâncias JSON
-│   │   └── formatter.py        # Impressão dos resultados
-│   └── main.py                 # Ponto de entrada e injeção de dependência
+│   ├── domain/         # Entidades: Posto, PontoDemanda, Solucao
+│   ├── services/       # Distância, custo, alocação de demanda
+│   ├── algorithms/     # Construção gulosa, busca local, Busca Tabu
+│   ├── io/             # Leitura de JSON e formatação de resultados
+│   └── main.py         # Ponto de entrada e injeção de dependência
 ├── data/
 │   ├── instancia.json          # Instância padrão (10 postos, 10 bairros)
-│   └── instancia_pequena.json  # Instância pequena (5 postos, 5 bairros)
-├── tests/                      # Testes unitários
-└── run.py                      # Script de execução rápida
-```
-
-## Testes
-
-```bash
-py -m unittest discover tests -v
+│   └── instancia_pequena.json  # Instância reduzida (5 postos, 5 bairros)
+├── tests/
+├── Dockerfile
+├── docker-compose.yml
+└── run.py
 ```
 
 ## Formato da Instância
-
-Arquivo JSON com postos candidatos, pontos de demanda e parâmetros de custo:
 
 ```json
 {
