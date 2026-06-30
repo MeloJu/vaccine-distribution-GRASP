@@ -24,28 +24,38 @@ Uma lista tabu bloqueia movimentos reversos por `tabu_tenure` iterações para e
 
 ## Como Executar
 
+### Com Docker (recomendado)
+
+```bash
+docker compose up
+```
+
+Para passar parâmetros diferentes:
+
+```bash
+docker compose run --rm tabu python -m src.main data/instancia.json 5 50
+```
+
+### Sem Docker
+
+Requer Python 3.9+, sem dependências externas.
+
 **Execução padrão** (instância com 10 postos e 10 bairros):
 
 ```bash
-py run.py
+python run.py
 ```
 
 **Com parâmetros:**
 
 ```bash
-py -m src.main data/instancia.json [tabu_tenure] [iteracoes]
+python -m src.main data/instancia.json [tabu_tenure] [iteracoes]
 ```
 
 | Parâmetro | Descrição | Padrão |
 |---|---|---|
 | `tabu_tenure` | Iterações que um movimento fica bloqueado | `5` |
 | `iteracoes` | Número máximo de iterações | `50` |
-
-**Exemplo:**
-
-```bash
-py -m src.main data/instancia.json 5 50
-```
 
 ## Estrutura do Projeto
 

@@ -1,0 +1,6 @@
+services:
+  tabu:
+    build: .
+    volumes:
+      - ./data:/app/data
+    command: python run.py
